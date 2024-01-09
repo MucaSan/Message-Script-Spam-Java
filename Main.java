@@ -2,6 +2,7 @@
  * 
  */
 package br.com.treinaweb.main;
+import java.util.ArrayList;
 import java.util.Scanner;
 /**
  * 
@@ -16,6 +17,7 @@ public class Main {
 		// this script will have the option to send a message only in an horizontal line, or perhaps,
 		// in a vertical line, breaking the line;
 		*/
+		ArrayList<String> historico = new ArrayList<String>();
 		boolean hasContinuation = true;
 		do {
 			System.out.println("This program gets a message from the user, and repeats it, in two types of configuration:");
@@ -32,6 +34,11 @@ public class Main {
 			switch(message_choice) {
 				case	"1":
 					message_breaking_line(text_to_be_spammed);
+					historico.add(text_to_be_spammed);
+					System.out.println("These are the messages that you've already spammed:");
+					for (int j = 0 ; j < historico.size();j++) {
+						System.out.println(historico.get(j));
+					}
 					System.out.println("Would you like to restart the program? (Y/N)");
 					Scanner ObjtConditionBreak = new Scanner(System.in);
 					String replayConditionBreak = ObjtConditionBreak.nextLine();
